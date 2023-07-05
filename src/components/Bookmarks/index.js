@@ -1,24 +1,23 @@
-import Card from '../Card'
 import axios from 'axios';
-import plus from '../../assets/img/add-icon.png'
 import { useState, useEffect } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
+import plus from '../../assets/img/add-icon.png';
+import Card from '../Card';
 
-
-const Bookmarks = () => {
+function Bookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     };
 
     axios.get(`${process.env.REACT_APP_BASE_URL}/user/me/stretches`, config)
-      .then(response => {
+      .then((response) => {
         setBookmarks(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }, [token]);
@@ -26,24 +25,23 @@ const Bookmarks = () => {
   const handleDelete = (id) => {
     console.log(id);
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     };
     axios.delete(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, config)
-      .then(response => {
-        setBookmarks(bookmarks.filter(bookmark => bookmark.id !== id));
+      .then((response) => {
+        setBookmarks(bookmarks.filter((bookmark) => bookmark.id !== id));
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
 
-
   return (
     <div className="bookmarks-container">
-      <div className='bookmarks-cards'>
+      <div className="bookmarks-cards">
         {
           bookmarks.map((stretch) => (
-            <div key={stretch.id} className='card-container'>
+            <div key={stretch.id} className="card-container">
               <Card
                 title={stretch.title}
                 description={stretch.description}
@@ -53,15 +51,18 @@ const Bookmarks = () => {
                 key={stretch.id}
                 link={stretch.id}
               />
-              <button className='delete-btn' onClick={() => handleDelete(stretch.id)}><AiOutlineDelete /></button>
+              <label htmlFor="delete-btn">Delete Button:</label>
+              <button id="delete-btn" className="delete-btn" type="button" onClick={() => handleDelete(stretch.id)}>
+                <AiOutlineDelete />
+              </button>
             </div>
           ))
         }
-        <Card title="Ajouter un favoris" img={plus} link={""} />
+        <Card title="Ajouter un favoris" img={plus} link="" />
       </div>
 
     </div>
-  )
+  );
 }
 
 export default Bookmarks;

@@ -1,20 +1,21 @@
-.Wrapper {
+.wrapper {
     margin-top: 4em;
     text-align: center;
 
-    & h1 {
+    &-h1 {
         margin: auto;
         margin-bottom: 10px;
         width: 60%;
-        font-size: 5.5rem;
+        font-size: 5rem;
         font-weight: 700;
         line-height: 1.3em;
     }
 
-    & p {
+    &-p {
         margin: auto;
         margin-bottom: 1em;
-        width: 37%;
-        font-weight: 500;
+        width: 50%;
+        font-weight: 700;
+        font-size: 1.2rem;
     }
 }
