@@ -10,25 +10,25 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer-links">
-        <ul>
+        <ul className="footer-links-ul">
           <Link to="/">Accueil</Link>
           <Link to="/stretches">Étirements</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/login">Connexion</Link>
+          <Link to="/forum">Forum</Link>
         </ul>
       </div>
 
       <div className="footer-text">
-        <p>
+        <p className="footer-text-p">
           Tout le monde connaît les étirements mais ils sont trop souvent délaissés malgré leurs effets bénéfiques sur la récupération, la posture et la prévention des blessures.
         </p>
-        <p>
+        <p className="footer-text-p">
           OStretch a pour but de vous aider à mieux comprendre les étirements et de vous proposer des séances d'étirements adaptées à vos besoins.
         </p>
       </div>
 
       <div className="footer-socials">
-        <ul>
+        <ul className="footer-social-ul">
           <Link to="/"><FaFacebookF /></Link>
           <Link to="/"><FaTwitter /></Link>
           <Link to="/"><FaInstagram /></Link>
@@ -37,7 +37,7 @@ function Footer() {
       </div>
 
       <div className="footer-legal">
-        <p>© 2023 Copyright - OStretch</p>
+        <p className="footer-legal-p">© 2023 Copyright - OStretch</p>
       </div>
     </div>
   );
