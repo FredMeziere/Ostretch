@@ -1,7 +1,13 @@
 .errorpage {
 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
     &-img {
         width: 550px;
-        text-align: center;
     }
 }
