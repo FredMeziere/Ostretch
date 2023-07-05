@@ -1,0 +1,32 @@
+// Import des variables SCSS
+@import '../../styles/vars';
+
+.Home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    & .Wrapper {
+        & p {
+            width: 40%;
+        }
+    }
+    
+    & .discover-button {
+        padding: 6px 24px;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 16px;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        background-color: $gold-color;
+        transition: $transition-300;
+    
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+}

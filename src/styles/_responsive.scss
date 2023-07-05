@@ -1,0 +1,576 @@
+// RESPONSIVES BREAKPOINTS
+// Mobile devices – 320px — 480px
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .Home {
+        & .Wrapper {
+            & h1 {
+                margin-top: -0.5em;
+                width: 100%;
+                font-size: 2rem;
+            }
+
+            & p {
+                width: 80%;
+                font-size: 1rem;
+            }
+        }
+
+        & .HumanBody {
+            &-div {
+                padding: 5px;
+            }
+        }
+
+        main {
+            width: 50%;
+        }
+    }
+
+    .Stretches {
+        .Wrapper {
+
+            & h1 {
+                width: 100%;
+                font-size: 2.8rem;
+            }
+
+            & p {
+                width: 80%;
+                font-size: 1rem;
+            }
+        }
+
+        & input {
+            margin-bottom: 3em;
+            width: 100%;
+        }
+
+        & .stretches-container {
+
+            & h2 {
+                text-align: center;
+            }
+            & .category {
+                margin-left: -2.3rem;
+                & ul {
+                    margin: auto;
+                    padding-left: 0;
+                    width: 280px;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-column-gap: 0px;
+                    grid-row-gap: 27px;
+
+                    & .card {
+                        width: 260px;
+                        height: 190px;
+
+                        & .favorite-icon {
+                            margin-top: 1.5em;
+                            margin-right: 1.5em;
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Stretch {
+        margin: 0;
+        padding: 0;
+
+        & .stretch-container {
+            grid-template-columns: repeat(1, 1fr);
+            flex-direction: column;
+            margin: 0 auto;
+            padding: 0;
+            width: 290px;
+
+            & .stretch-image-container {
+                margin: auto;
+                margin-top: 2em;
+                padding: 0;
+                display: flex;
+                justify-content: flex-start;
+                width: 280px;
+                height: 280px;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            & .stretch-infos {
+                margin: 0;
+
+                & h1 {
+                    margin-top: -0.1em;
+                    margin-bottom: 1em;
+                    font-size: 1.5rem;
+                }
+
+                & p {
+                    margin-top: -0.5em;
+                }
+            }
+        }
+    }
+
+    
+    #category-cards{
+        & .card{
+            width: 75px;
+            height: 125px;
+        }
+        
+    }
+    .legs-cards{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        height:100%;
+        width: 100%;
+        margin: 0 auto;
+        gap: 25%;
+    }
+    .right-legs-cards{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 1%;
+        justify-content: space-between;
+    }
+    .left-legs-cards{
+        margin-left: 1%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .head-cards{
+        position: absolute;
+        left: 5%;
+        top: -10%;
+        margin: 0;
+    }
+    .arm-cards{
+        position: absolute;
+        left: 5%;
+        top: -10%;
+        margin: 0;
+    }
+    .cheast-cards{
+        position: absolute;
+        right: 0;
+        margin-right: 0%;
+        height: 100%;
+        display: flex;
+        flex-direction:column;
+    }
+    .stomach-cards{
+        position: absolute;
+        margin-left: 1%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .shoulder-cards{
+        position: absolute;
+        left: 53%;
+        top: -10%;
+    }
+    
+
+    .login {
+        
+        & .box-container {
+            width: 100%;
+
+            & button {
+                width: 80%;
+            }
+
+            & .signup {
+                width: 80%;
+            }
+        }
+    }
+
+    .ErrorPage {
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+// iPads, Tablets – 481px — 768px
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .Home {
+        & .Wrapper {
+            & h1 {
+                width: 100%;
+                font-size: 3.5rem;
+            }
+
+            & p {
+                width: 100%;
+            }
+        }
+    }
+
+    .Stretches {
+        .Wrapper {
+            & h1 {
+                width: 100%;
+                font-size: 4.5rem;
+            }
+
+            & p {
+                width: 100%;
+                font-size: 1.2rem;
+            }
+        }
+
+        & input {
+            margin-bottom: 4em;
+            width: 80%;
+        }
+
+        & .stretches-container {
+
+            & .category {
+
+                & h2 {
+                    text-align: center;
+                }
+                & ul {
+                    margin: auto;
+                    margin-bottom: 6em;
+                    width: 350px;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(1, 1fr);
+                    grid-column-gap: 0px;
+                    grid-row-gap: 27px;
+
+                    & .card {
+                        width: 280px;
+                        height: 190px;
+                    }
+                }
+            }
+        }
+    }
+
+    .Stretch {
+        margin: 0;
+        padding: 0;
+
+        & .stretch-container {
+            grid-template-columns: repeat(1, 1fr);
+            flex-direction: column;
+            margin: 0 auto;
+            padding: 0;
+            width: 400px;
+
+            & .stretch-image-container {
+                margin: auto;
+                margin-top: 2em;
+                padding: 0;
+                display: flex;
+                justify-content: flex-start;
+                width: 400px;
+                height: 400px;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            & .stretch-infos {
+                margin: 0;
+
+                & h1 {
+                    margin-top: -0.1em;
+                    margin-bottom: 0.5em;
+                    font-size: 2.5rem;
+                }
+
+                & p {
+                    margin-top: -0.5em;
+                }
+            }
+        }
+    }
+
+    .login {
+        
+        & .box-container {
+            width: 100%;
+
+            & button {
+                width: 70%;
+            }
+
+            & .signup {
+                width: 70%;
+            }
+        }
+    }
+
+    .Stretch {
+        margin: 0;
+        padding: 0;
+
+        & .stretch-container {
+            flex-direction: column;
+            padding: 1em;
+
+            & .stretch-ilustration-container {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        & .stretch-infos {
+            margin: 0;
+            width: 100%;
+
+            & h1 {
+                width: 100%;
+                text-align: center;
+            }
+
+            & p {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    .ErrorPage {
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+// Small screens, laptops – 769px — 1024px
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .Home {
+        .Wrapper {
+            & h1 {
+                width: 100%;
+            }
+
+            & p {
+                width: 80%;
+            }
+        }
+    }
+
+    .Stretches {
+        .Wrapper {
+            & h1 {
+                width: 95%;
+            }
+
+            & p {
+                width: 80%;
+            }
+        }
+
+        & input {
+            margin-bottom: 5em;
+            width: 45%;
+        }
+
+        & .stretches-container {
+
+            & .category {
+
+                & h2 {
+                    margin-bottom: 1em;
+                    text-align: center;
+                    font-size: 2rem;
+                }
+                & ul {
+                    margin: 0 auto;
+                    width: 700px;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: 1fr;
+
+                    & .card {
+                        width: 270px;
+                        height: 170px;
+
+                        & .favorite-icon {
+                            margin-top: -12px;
+                            margin-right: 0.5em;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Stretch {
+        margin: 0;
+        padding: 0;
+
+        & .stretch-container {
+            margin: 0 auto;
+            padding: 0;
+            width: 700px;
+
+            & .stretch-image-container {
+                margin: auto;
+                margin-top: 2em;
+                padding: 0;
+                display: flex;
+                justify-content: flex-start;
+                width: 400px;
+                height: 400px;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            & .stretch-infos {
+
+                & h1 {
+                    margin-top: 2em;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+// Desktops, large screens – 1025px — 1200px
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .Stretches {
+        .Wrapper {
+            & h1 {
+                width: 95%;
+            }
+
+            & p {
+                width: 80%;
+            }
+        }
+
+        & input {
+            margin-bottom: 5em;
+            width: 45%;
+        }
+
+        & .stretches-container {
+
+            & .category {
+
+                & h2 {
+                    margin-bottom: 1em;
+                    text-align: center;
+                    font-size: 2rem;
+                }
+                & ul {
+                    margin: auto;
+                    margin-right: 2em;
+                    justify-content: center;
+                    align-items: center;
+                    width: 900px;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: 1fr;
+
+                    & .card {
+                        width: 260px;
+                        height: 170px;
+                    }
+                }
+            }
+        }
+    }
+}
+// Laptop: 1366 x 768
+@media screen and (min-width: 1201px) and (max-width: 1650px) {
+    .Stretches {
+        .Wrapper {
+            & h1 {
+                width: 95%;
+            }
+
+            & p {
+                width: 53%;
+            }
+        }
+
+        & input {
+            margin-bottom: 5em;
+            width: 45%;
+        }
+
+        & .stretches-container {
+
+            & .category {
+
+                & h2 {
+                    margin-bottom: 1em;
+                    text-align: center;
+                    font-size: 2rem;
+                }
+                & ul {
+                    margin: auto;
+                    justify-content: center;
+                    align-items: center;
+                    width: 1250px;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: 1fr;
+
+                    & .card {
+                        width: 320px;
+                        height: 230px;
+
+                        & .favorite-icon {
+                            margin-top: -12px;
+                            margin-right: 0.5em;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Stretch {
+        margin: 0;
+        padding: 0;
+
+        & .stretch-container {
+
+            & .stretch-infos {
+
+                & h1 {
+                    margin-bottom: 0.2em;
+                    width: 100%;
+                    font-size: 2.8rem;
+                }
+
+                & p {
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

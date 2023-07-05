@@ -1,0 +1,51 @@
+.about {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-container {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        background-color: white;
+        padding: 50px;
+
+        &-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        &-photo {
+            height: 200px;
+            border-radius: 15px;
+        }
+
+        &-name {
+            color: #7867B1;
+            font-weight: bold;
+
+        }
+
+        &-icons {
+            color: #7867B1;
+            height: 40px;
+
+            &-a {
+                margin: 0 4px;
+                font-size: 1.6rem;
+                transition: all 400ms ease;
+
+                &:hover {
+                    color: #a299c0;
+                }
+            }
+        }
+    }
+}
