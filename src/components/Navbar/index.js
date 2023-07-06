@@ -93,7 +93,7 @@ function Navbar({ isLogged, onLogout }) {
   );
 
   return (
-    <div className="Navbar">
+    <div className="navbar">
       {/* Mobile */}
       <MediaQuery minWidth={320} maxWidth={480}>
         {mobileNav()}

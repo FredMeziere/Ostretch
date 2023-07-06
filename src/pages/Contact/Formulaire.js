@@ -7,6 +7,7 @@ function Formulaire() {
   const contactFormRef = useRef(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [compagny, setCompagny] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
@@ -16,6 +17,7 @@ function Formulaire() {
     const formData = {
       name,
       email,
+      compagny,
       subject,
       message,
     };
@@ -26,6 +28,7 @@ function Formulaire() {
         if (data === 'success') {
           setName('');
           setEmail('');
+          setCompagny('');
           setSubject('');
           setMessage('');
         }
@@ -47,6 +50,10 @@ function Formulaire() {
       <div className="form-div">
         <label className="form-label" htmlFor="email">Votre e-mail</label>
         <input className="form-input" type="email" id="email" placeholder="Votre adresse email" value={email} onChange={(event) => setEmail(event.target.value)} />
+      </div>
+      <div className="form-div">
+        <label className="form-label" htmlFor="subject">Nom de votre entreprise</label>
+        <input className="form-input" type="text" id="compagny" placeholder="Nom de votre entreprise" value={subject} onChange={(event) => setSubject(event.target.value)} />
       </div>
       <div className="form-div">
         <label className="form-label" htmlFor="subject">Motif de votre contact</label>
