@@ -5,6 +5,12 @@
     align-items: center;
     justify-content: center;
 
+    &-h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
     &-container {
         display: flex;
         width: 80%;
@@ -20,6 +26,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            line-height: 1.4rem;
         }
 
         &-photo {
@@ -28,19 +35,25 @@
         }
 
         &-name {
-            color: #7867B1;
+            margin-top: 5px;
+            color: #000000;
             font-weight: bold;
+        }
 
+        &-role {
+            color: #000000;
+            font-weight: bold;
         }
 
         &-icons {
             color: #7867B1;
-            height: 40px;
+            margin-top: 5px;
 
-            &-a {
+            & a {
                 margin: 0 4px;
                 font-size: 1.6rem;
                 transition: all 400ms ease;
+                padding: 5px;
 
                 &:hover {
                     color: #a299c0;

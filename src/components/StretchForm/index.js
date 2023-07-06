@@ -1,86 +1,98 @@
-import { useState } from "react";
+import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  func, string, number,
+} from 'prop-types';
 
+function StretchForm({
+  stretch, setStretch, id, setOnEdit,
+}) {
+  const [userValue, setUserValue] = useState({
+    title: '',
+    main_image: '',
+    description_content: '',
+  });
+  // console.log(userValue);
 
-const StretchForm = ({stretch, setStretch, id, setOnEdit}) => {
-    const [userValue, setUserValue] = useState({
-        title: "",
-        main_image: "",
-        description_content: ""
-    });
-console.log(userValue);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log(userValue);
+    const updatedData = {};
+    if (userValue.title !== '') {
+      updatedData.title = userValue.title;
+    }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(userValue)
-        const updatedData = {};
-        if (userValue.title !== "") {
-            updatedData.title = userValue.title;
-          }
-        
-        if (userValue.description_content !== "") {
-            updatedData.description_content = userValue.description_content;
-          }
+    if (userValue.description_content !== '') {
+      updatedData.description_content = userValue.description_content;
+    }
 
-          if (userValue.main_image !== "") {
-            updatedData.main_image = userValue.main_image;
-          }
+    if (userValue.main_image !== '') {
+      updatedData.main_image = userValue.main_image;
+    }
 
-        const token = localStorage.getItem('token'); // Récupérer le jeton d'authentification stocké dans le stockage local
+    const token = localStorage.getItem('token'); // Récupérer le jeton d'authentification stocké dans le stockage local
 
-      axios.patch(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, updatedData, {
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, updatedData, {
       headers: {
-        'Authorization': `Bearer ${token}`, // Ajouter le jeton d'authentification à l'en-tête de la demande
-        "Content-Type": "application/json"
-      }
+        Authorization: `Bearer ${token}`, // Ajouter le jeton d'authentification à l'en-tête de la demande
+        'Content-Type': 'application/json',
+      },
     })
-      .then(response => {
+      .then(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((response) => {
-          const stretchFound = response.data;
-          setStretch(stretchFound);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .then((response) => {
+            const stretchFound = response.data;
+            setStretch(stretchFound);
+            // console.log(response.data);
+          })
+          .catch((error) => {
+            toast.error(error);
+          });
       })
-      .catch(error => {
-        console.error(error);
+      .catch((error) => {
+        toast.error(error);
       });
-      setOnEdit(false);
-    }
+    setOnEdit(false);
+  };
 
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-      setUserValue({
-          ...userValue,
-          [name]: value
-        })
-    }
-    return (
-        <form className="infos-container" onSubmit={handleSubmit}>
-     <p>
-          Nom de l'étirement:
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserValue({
+      ...userValue,
+      [name]: value,
+    });
+  };
+  return (
+    <form className="infos-container" onSubmit={handleSubmit}>
+      <p>
+        Nom de l'étirement:
       </p>
-        <input type="text" name="title" value={userValue.title} className='infos' placeholder={stretch.title} onChange={handleChange}/> 
-        <p>
-          URL de la photo:
+      <input type="text" name="title" value={userValue.title} className="infos" placeholder={stretch.title} onChange={handleChange} />
+      <p>
+        URL de la photo:
       </p>
-        <input type="text" name="main_image" value={userValue.main_image} className='infos' placeholder="https://" onChange={handleChange}/> 
-        <p>
-          Description:
-        </p>
-        <textarea rows="5" cols="45" type="text" name="description_content" value={userValue.description_content} className='infos'  placeholder={stretch.description_content} onChange={handleChange}/>
+      <input type="text" name="main_image" value={userValue.main_image} className="infos" placeholder="https://" onChange={handleChange} />
+      <p>
+        Description:
+      </p>
+      <textarea rows="5" cols="45" type="text" name="description_content" value={userValue.description_content} className="infos" placeholder={stretch.description_content} onChange={handleChange} />
 
-        <button className="modify-btn" >Enregistrer</button>
-    </form> 
-    )
+      <button className="modify-btn" type="button">Enregistrer</button>
+    </form>
+  );
 }
+
+StretchForm.propTypes = {
+  stretch: string.isRequired,
+  setStretch: func.isRequired,
+  id: number.isRequired,
+  setOnEdit: func.isRequired,
+};
 
 export default StretchForm;
