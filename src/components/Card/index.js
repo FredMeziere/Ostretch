@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  string, number, func,
+} from 'prop-types';
 import axios from 'axios';
-
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 // Styles
 import './styles.scss';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-function Card(props) {
+function Card({
+  id, link, title, isLogged, hover, alt, img,
+}) {
   const [isFavorite, setIsFavorite] = useState(false);
   const token = localStorage.getItem('token');
 
@@ -17,24 +23,24 @@ function Card(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    console.log(config);
-    axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${props.id}`, {}, config)
-      .then((response) => {
+    // console.log(config);
+    axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, {}, config)
+      .then(() => {
         setIsFavorite(true);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       }, [token]);
   };
 
   return (
-    <div className="Card" id={props.id}>
-      <Link to={`/stretches/${props.link}`} className="card" title={props.title}>
+    <div className="Card" id={id}>
+      <Link to={`/stretches/${link}`} className="card" title={title}>
         <div className="card-content">
-          <img src={props.img} alt={props.alt} title={props.hover} />
+          <img src={img} alt={alt} title={hover} />
           <div className="card-footer">
-            <h3>{props.title}</h3>
-            {props.isLogged ? (
+            <h3>{title}</h3>
+            {isLogged ? (
               <span onClick={handleFavorite} className="favorite-icon">
                 {isFavorite ? <AiFillHeart className="filled-icon" /> : <AiOutlineHeart />}
               </span>
@@ -47,5 +53,15 @@ function Card(props) {
     </div>
   );
 }
+
+Card.propTypes = {
+  id: number.isRequired,
+  link: string.isRequired,
+  img: string.isRequired,
+  alt: string.isRequired,
+  hover: string.isRequired,
+  title: string.isRequired,
+  isLogged: func.isRequired,
+};
 
 export default Card;
