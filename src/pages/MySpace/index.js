@@ -1,36 +1,43 @@
 import { useState } from 'react';
+import {
+  func, string, object,
+} from 'prop-types';
 import Bookmarks from '../../components/Bookmarks';
 
 // Styles
 import Info from '../../components/Info';
 import InfoForm from '../../components/InfoForm';
-import './styles.scss'
+import './styles.scss';
 
-const MySpace = ({user, setUser, setIsLogged}) => {
+function MySpace({ user, setUser, setIsLogged }) {
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
-    const [isEditOpen, setIsEditOpen] = useState(false);
+  const onEdit = () => {
+    setIsEditOpen(!isEditOpen);
+  };
 
-    const onEdit = () => {
-        setIsEditOpen(!isEditOpen);
-    }
+  return (
+    <div className="MySpace">
+      <h1>Bienvenue {user.username}</h1>
+      <div className="box">
 
-    return (
-        <div className='MySpace'>
-            <h1>Bienvenue {user.username}</h1>
-            <div className="box">
-                
-                <h2>Mes informations</h2>
-                { isEditOpen ? <InfoForm user={user} setIsEditOpen={setIsEditOpen} setUser={setUser} setIsLogged={setIsLogged} /> : <Info user={user} handleClick={onEdit} />}
-     
-            </div>
-            <div className="box">
-                <h2>Mes favoris</h2>
-                <Bookmarks />          
-            </div>
-        </div>
-    );
+        <h2>Mes informations</h2>
+        { isEditOpen ? <InfoForm user={user} setIsEditOpen={setIsEditOpen} setUser={setUser} setIsLogged={setIsLogged} /> : <Info user={user} handleClick={onEdit} />}
+
+      </div>
+      <div className="box">
+        <h2>Mes favoris</h2>
+        <Bookmarks />
+      </div>
+    </div>
+  );
+}
+
+MySpace.propTypes = {
+  user: object.isRequired,
+  setUser: func.isRequired,
+  setIsLogged: func.isRequired,
+  username: string.isRequired,
 };
 
 export default MySpace;
-
-// /user/me/stretches/:id
