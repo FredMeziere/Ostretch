@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import axios from 'axios';
 
