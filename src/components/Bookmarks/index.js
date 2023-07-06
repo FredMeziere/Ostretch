@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import plus from '../../assets/img/add-icon.png';
 import Card from '../Card';
 
@@ -18,21 +21,21 @@ function Bookmarks() {
         setBookmarks(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   }, [token]);
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios.delete(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, config)
-      .then((response) => {
+      .then(() => {
         setBookmarks(bookmarks.filter((bookmark) => bookmark.id !== id));
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   };
 
