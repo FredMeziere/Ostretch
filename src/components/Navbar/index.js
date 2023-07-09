@@ -4,7 +4,7 @@ import MediaQuery from 'react-responsive';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import {
-  func,
+  func, bool,
 } from 'prop-types';
 // Components
 import Toggle from '../Toggle';
@@ -115,7 +115,7 @@ function Navbar({ isLogged, onLogout }) {
 }
 
 Navbar.propTypes = {
-  isLogged: func.isRequired,
+  isLogged: bool.isRequired,
   onLogout: func.isRequired,
 };
 

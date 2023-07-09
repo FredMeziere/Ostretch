@@ -1,8 +1,9 @@
+/* eslint-disable react/require-default-props */
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import axios from 'axios';
 import {
-  string, number, func,
+  string, number, bool,
 } from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -58,12 +59,13 @@ function Card({
 
 Card.propTypes = {
   id: number.isRequired,
-  link: string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  link: string,
   img: string.isRequired,
   alt: string.isRequired,
   hover: string.isRequired,
   title: string.isRequired,
-  isLogged: func.isRequired,
+  isLogged: bool.isRequired,
 };
 
 export default Card;

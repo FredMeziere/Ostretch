@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  func, number, shape, string,
+  func, shape, string,
 } from 'prop-types';
 
 function StretchForm({
@@ -95,7 +95,7 @@ StretchForm.propTypes = {
     description_content: string,
   }).isRequired,
   setStretch: func.isRequired,
-  id: number.isRequired,
+  id: string.isRequired,
   setOnEdit: func.isRequired,
 };
 
