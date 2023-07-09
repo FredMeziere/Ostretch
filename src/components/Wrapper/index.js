@@ -7,9 +7,9 @@ import './wrapper.scss';
 
 function Wrapper({ wrapperTitle, wrapperDescription }) {
   return (
-    <div className="Wrapper">
-      <h1>{wrapperTitle}</h1>
-      <p>{wrapperDescription}</p>
+    <div className="wrapper">
+      <h1 className="wrapper-h1">{wrapperTitle}</h1>
+      <p className="wrapper-p">{wrapperDescription}</p>
     </div>
   );
 }
