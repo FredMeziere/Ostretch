@@ -53,7 +53,7 @@ export default class Stretches extends Component {
     const filterData = this.filterData();
 
     return (
-      <div className="Stretches">
+      <div className="stretches">
         <div>
           <Wrapper
             wrapperTitle="Tous nos étirements disponibles"
@@ -63,14 +63,14 @@ export default class Stretches extends Component {
             type="search"
             name="search"
             id="searchInput"
-            placeholder="Votre recherche..."
+            placeholder="Ecrivez le nom de votre étirement..."
             value={searchTerm}
             onChange={this.handleSearch}
           />
         </div>
         {isAdmin ? (
-          <div className="add-container">
-            <NavLink to="/new-stretch" className="add-stretch-btn"> <AiFillPlusCircle /> Ajouter un étirement </NavLink>
+          <div className="stretches-add">
+            <NavLink to="/new-stretch" className="stretches-add-stretch-btn"> <AiFillPlusCircle /> Ajouter un étirement </NavLink>
           </div>
         ) : null}
 
@@ -78,10 +78,10 @@ export default class Stretches extends Component {
           <div className="stretches-container">
             <ul>
               {categories.map((category) => (
-                <div className="category" key={category.name}>
+                <div className="stretches-container-category" key={category.name}>
                   <div id={category.name} />
-                  <h2>{category.name}</h2>
-                  <ul>
+                  <h2 className="stretches-container-h2">{category.name}</h2>
+                  <ul className="stretches-container-ul">
                     {filterData
                       .filter((stretch) => stretch.categorie_id === category.id)
                       .map((stretch) => (
