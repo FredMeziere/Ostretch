@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  func, number, shape, string,
+} from 'prop-types';
 
 function StretchForm({
   stretch, setStretch, id, setOnEdit,
@@ -35,7 +40,7 @@ function StretchForm({
         'Content-Type': 'application/json',
       },
     })
-      .then((response) => {
+      .then(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -47,11 +52,11 @@ function StretchForm({
             // console.log(response.data);
           })
           .catch((error) => {
-            console.log(error);
+            toast.error(error);
           });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error);
       });
     setOnEdit(false);
   };
@@ -82,5 +87,16 @@ function StretchForm({
     </form>
   );
 }
+
+StretchForm.propTypes = {
+  stretch: shape({
+    title: string,
+    main_image: string,
+    description_content: string,
+  }).isRequired,
+  setStretch: func.isRequired,
+  id: number.isRequired,
+  setOnEdit: func.isRequired,
+};
 
 export default StretchForm;

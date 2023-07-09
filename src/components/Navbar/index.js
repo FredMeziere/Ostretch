@@ -3,6 +3,9 @@ import { useState } from 'react';
 import MediaQuery from 'react-responsive';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import {
+  func,
+} from 'prop-types';
 // Components
 import Toggle from '../Toggle';
 
@@ -10,7 +13,6 @@ import Toggle from '../Toggle';
 import './styles.scss';
 import logo from '../../assets/img/logo.svg';
 
-// eslint-disable-next-line react/prop-types
 function Navbar({ isLogged, onLogout }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -111,5 +113,10 @@ function Navbar({ isLogged, onLogout }) {
     </div>
   );
 }
+
+Navbar.propTypes = {
+  isLogged: func.isRequired,
+  onLogout: func.isRequired,
+};
 
 export default Navbar;

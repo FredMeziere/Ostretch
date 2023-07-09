@@ -1,20 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import {
+  func,
+} from 'prop-types';
 
-
-const Toggle = ({onLogout, onClose}) => {
-
-
+function Toggle({ onLogout, onClose }) {
   const handleClick = () => {
     onLogout();
-    onClose(); 
-  }
+    onClose();
+  };
   return (
 
     <div className="menu">
-        <NavLink to="/my-space" className="space">Mon espace </NavLink>
-        <NavLink to="/" className="space" onClick={handleClick}>Déconnexion </NavLink>
-  </div>  
+      <NavLink to="/my-space" className="space">Mon espace </NavLink>
+      <NavLink to="/" className="space" onClick={handleClick}>Déconnexion </NavLink>
+    </div>
   );
 }
 
-    export default Toggle;
+Toggle.propTypes = {
+  onLogout: func.isRequired,
+  onClose: func.isRequired,
+};
+
+export default Toggle;
