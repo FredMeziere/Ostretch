@@ -21,19 +21,25 @@ function Card({
   const handleFavorite = (event) => {
     event.preventDefault();
 
-    setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      toast.warning('Cette carte est déjà marquée comme favorite.');
+      return;
+    }
+
+    setIsFavorite(true);
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    // console.log(config);
+
     axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, {}, config)
       // eslint-disable-next-line no-unused-vars
       .then((response) => {
         setIsFavorite(true);
       })
       .catch((error) => {
+        setIsFavorite(false);
         toast.error(error);
-      }, [token]);
+      });
   };
 
   return (

@@ -110,6 +110,6 @@ export default class Stretches extends Component {
 
 Stretches.propTypes = {
   // eslint-disable-next-line react/require-default-props
-  isAdmin: bool, // Add the 'isAdmin' prop to the prop types list
+  isAdmin: bool,
   isLogged: bool.isRequired,
 };
