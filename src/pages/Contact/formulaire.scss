@@ -1,63 +1,52 @@
 @import '../../styles/vars';
 
-.form {
+.Form {
   margin: auto;
   margin-top: 4%;
   padding: 0 50px 0 50px;
-  width: 80%;
+  width: 700px;
   border: 3px solid white;
   border-radius: 43px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: white;
 
-
-  &-p{
-    font-size: 1.4rem;
-    padding: 20px;
-    font-weight: 500;
-  }
-
-  &-div {
+  & div {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 83px;
     margin-top: 25px;
+
+    & label {
+      margin-bottom: 7px;
+      font-weight: 600;
+    }
+
+    & input {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      height: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    & textarea {
+      padding: 15px 0 0 10px;
+      border: none;
+      border-radius: 10px;
+      height: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      font-family: 'Poppins', sans-serif;
+    }
   }
 
-  &-label {
-    margin-bottom: 7px;
-    font-weight: 600;
-  }
-
-  &-input {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    height: 75px;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Poppins', sans-serif;
-  }
-
-  &-textarea {
-    padding: 15px 0 0 10px;
-    border: none;
-    border-radius: 10px;
-    height: 75px;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Poppins', sans-serif;
-  }
-
-  &-label {
-    padding: 10px;
-  }
-
-  &-button {
+  & button {
     cursor: pointer;
     margin: auto;
     margin-top: 10px;

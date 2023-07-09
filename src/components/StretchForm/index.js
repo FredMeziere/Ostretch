@@ -1,10 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {
-  func, string, number,
-} from 'prop-types';
 
 function StretchForm({
   stretch, setStretch, id, setOnEdit,
@@ -40,7 +35,7 @@ function StretchForm({
         'Content-Type': 'application/json',
       },
     })
-      .then(() => {
+      .then((response) => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,11 +47,11 @@ function StretchForm({
             // console.log(response.data);
           })
           .catch((error) => {
-            toast.error(error);
+            console.log(error);
           });
       })
       .catch((error) => {
-        toast.error(error);
+        console.error(error);
       });
     setOnEdit(false);
   };
@@ -83,16 +78,9 @@ function StretchForm({
       </p>
       <textarea rows="5" cols="45" type="text" name="description_content" value={userValue.description_content} className="infos" placeholder={stretch.description_content} onChange={handleChange} />
 
-      <button className="modify-btn" type="button">Enregistrer</button>
+      <button type="button" className="modify-btn">Enregistrer</button>
     </form>
   );
 }
-
-StretchForm.propTypes = {
-  stretch: string.isRequired,
-  setStretch: func.isRequired,
-  id: number.isRequired,
-  setOnEdit: func.isRequired,
-};
 
 export default StretchForm;

@@ -1,15 +1,15 @@
 @import '../../styles/vars';
 
-.humanbody {
-
-    padding: 200px;
-
-    &-div {
-        padding-top: 20px;
+.HumanBody {
+    div {
+        width: 207px;
+        position: relative;
+        padding-top: 240px;
+        height: 260px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 30px auto;
+        margin: 40px auto;
     
         & svg:hover {
             cursor: pointer;

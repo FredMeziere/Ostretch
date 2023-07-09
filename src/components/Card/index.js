@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 import {
   string, number, func,
 } from 'prop-types';
-import axios from 'axios';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Styles
 import './styles.scss';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 function Card({
   id, link, title, isLogged, hover, alt, img,
@@ -25,7 +26,8 @@ function Card({
     };
     // console.log(config);
     axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, {}, config)
-      .then(() => {
+      // eslint-disable-next-line no-unused-vars
+      .then((response) => {
         setIsFavorite(true);
       })
       .catch((error) => {

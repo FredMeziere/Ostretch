@@ -1,17 +1,11 @@
-.about {
+.About{
     height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    &-h2 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    &-container {
+    & .about-container{
         display: flex;
         width: 80%;
         margin: 0 auto;
@@ -19,44 +13,36 @@
         border-radius: 20px;
         background-color: white;
         padding: 50px;
-
-        &-card {
+    
+        & .about-card{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            line-height: 1.4rem;
-        }
-
-        &-photo {
-            height: 200px;
-            border-radius: 15px;
-        }
-
-        &-name {
-            margin-top: 5px;
-            color: #000000;
-            font-weight: bold;
-        }
-
-        &-role {
-            color: #000000;
-            font-weight: bold;
-        }
-
-        &-icons {
-            color: #7867B1;
-            margin-top: 5px;
-
-            & a {
-                margin: 0 4px;
-                font-size: 1.6rem;
-                transition: all 400ms ease;
-                padding: 5px;
-
-                &:hover {
-                    color: #a299c0;
+        
+            & .about-photo{
+                height: 200px;
+                border-radius: 15px;
+            }
+            
+             & .about-name{
+                color: #7867B1;
+                font-weight: bold;
+            
+            }
+             & .about-icons{
+                color: #7867B1;
+                height: 40px;
+            
+                & a {
+                    margin: 0 4px;
+                    font-size: 1.6rem;
+                    transition: all 400ms ease;
+            
+                    &:hover {
+                        color: #a299c0;
+                    }
                 }
             }
         }

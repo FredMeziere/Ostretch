@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -31,7 +32,8 @@ function Bookmarks() {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios.delete(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, config)
-      .then(() => {
+      // eslint-disable-next-line no-unused-vars
+      .then((response) => {
         setBookmarks(bookmarks.filter((bookmark) => bookmark.id !== id));
       })
       .catch((error) => {
@@ -54,10 +56,7 @@ function Bookmarks() {
                 key={stretch.id}
                 link={stretch.id}
               />
-              <label htmlFor="delete-btn">Delete Button:</label>
-              <button id="delete-btn" className="delete-btn" type="button" onClick={() => handleDelete(stretch.id)}>
-                <AiOutlineDelete />
-              </button>
+              <button type="button" className="delete-btn" onClick={() => handleDelete(stretch.id)}><AiOutlineDelete /></button>
             </div>
           ))
         }

@@ -1,16 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import MediaQuery from 'react-responsive';
-import { func } from 'prop-types';
-// Components
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+// Components
 import Toggle from '../Toggle';
 
 // Styles
 import './styles.scss';
 import logo from '../../assets/img/logo.svg';
 
+// eslint-disable-next-line react/prop-types
 function Navbar({ isLogged, onLogout }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -36,28 +36,28 @@ function Navbar({ isLogged, onLogout }) {
   };
 
   const desktopNav = () => (
-    <div className="desktopnav">
+    <div className="nav-container">
       <img src={logo} alt="OStretch logo" />
-      <ul className="desktopnav-nav-links">
-        <Link className="desktopnav-nav-links-home" to="/">
+      <ul className="nav-links">
+        <Link className="home" to="/">
           Accueil
         </Link>
-        <Link className="desktopnav-nav-links-stretches" to="/stretches">
+        <Link className="stretches" to="/stretches">
           Étirements
         </Link>
-        <Link className="desktopnav-nav-links-about" to="/about">
+        <Link className="about" to="/about">
           A propos
         </Link>
-        <Link className="desktopnav-nav-links-contact" to="/contact">
+        <Link className="forum" to="/forum">
           Contact
         </Link>
-        <Link className="desktopnav-nav-links-forum" to="/forum">
-          Forum
+        <Link className="contact" to="/contact">
+          Contact
         </Link>
       </ul>
-      <div className="desktopnav-profile">
+      <div className="login-profile">
         {
-                        isLogged ? <FaRegUserCircle className="desktopnav-profile-user" onClick={handleClick} /> : <NavLink to="/login" className="desktopnav-profile-login">Login</NavLink>
+                        isLogged ? <FaRegUserCircle className="user" onClick={handleClick} /> : <NavLink to="/login" className="login">Login</NavLink>
                     }
       </div>
       {
@@ -93,7 +93,7 @@ function Navbar({ isLogged, onLogout }) {
   );
 
   return (
-    <div className="navbar">
+    <div className="Navbar">
       {/* Mobile */}
       <MediaQuery minWidth={320} maxWidth={480}>
         {mobileNav()}
@@ -111,10 +111,5 @@ function Navbar({ isLogged, onLogout }) {
     </div>
   );
 }
-
-Navbar.propTypes = {
-  isLogged: func.isRequired,
-  onLogout: func.isRequired,
-};
 
 export default Navbar;
