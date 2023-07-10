@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/require-default-props */
 import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
@@ -32,7 +33,6 @@ function Card({
     };
 
     axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/stretches/${id}`, {}, config)
-      // eslint-disable-next-line no-unused-vars
       .then((response) => {
         setIsFavorite(true);
       })
