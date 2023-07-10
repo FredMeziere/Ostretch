@@ -133,14 +133,17 @@
     }
   }
 
-
-
   &-links {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 600px;
+    height: 80px;
     text-align: center;
+
+    & .about {
+      height: 80px;
+    }
 
     & a {
       color: $purple-color;
