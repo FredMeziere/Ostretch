@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import plus from '../../assets/img/add-icon.png';
 import Card from '../Card';
 
+import './styles.scss';
+
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
   const token = localStorage.getItem('token');

@@ -85,10 +85,6 @@
 
   & img {
     height: 75%;
-
-    &:hover {
-      animation: spin 2s linear infinite;
-    }
   }
 
   @keyframes spin {
@@ -111,15 +107,10 @@
     box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
     padding: 30px;
     transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-
     align-items: center;
 
     & img {
-      height: 75%;
-
-      &:hover {
-        animation: spin 2s linear infinite;
-      }
+      height: 300%;
     }
 
     @keyframes spin {

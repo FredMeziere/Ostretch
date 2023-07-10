@@ -52,22 +52,22 @@ function Login({ onSubmitLoginForm }) {
 
   return (
     <div className="login">
-      <div className="box-container">
+      <div className="login-box-container">
         <img src={logo} alt="" />
-        <h2>Se connecter</h2>
+        <h2 className="login-h2">Remplissez tous les champs pour vous connecter</h2>
         {
             error ? <div className="error"> Mauvaise adresse email et/ou mot de passe </div> : null
             }
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="input-group">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="login-input-group">
             <input type="email" name="email" placeholder="Email" value={email} onChange={handleEmailChange} />
           </div>
 
-          <div className="input-group">
+          <div className="login-input-group">
             <input type="password" name="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
           </div>
           <button type="submit" className="primary">Connexion</button>
-          <p>Pas encore inscrit ?</p>
+          <p className="login-p">Pas encore inscrit ?</p>
           <NavLink to="/signup" className="signup">Créer un compte</NavLink>
         </form>
       </div>
