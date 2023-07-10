@@ -98,10 +98,8 @@ function Stretch({ isLogged, isAdmin }) {
 }
 
 Stretch.propTypes = {
-  // eslint-disable-next-line react/require-default-props
-  isLogged: bool,
-  // eslint-disable-next-line react/require-default-props
-  isAdmin: bool,
+  isLogged: bool.isRequired,
+  isAdmin: bool.isRequired,
 };
 
 export default Stretch;

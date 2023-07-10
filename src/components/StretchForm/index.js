@@ -83,7 +83,7 @@ function StretchForm({
       </p>
       <textarea rows="5" cols="45" type="text" name="description_content" value={userValue.description_content} className="infos" placeholder={stretch.description_content} onChange={handleChange} />
 
-      <button type="button" className="modify-btn">Enregistrer</button>
+      <button type="submit" className="modify-btn">Enregistrer</button>
     </form>
   );
 }
