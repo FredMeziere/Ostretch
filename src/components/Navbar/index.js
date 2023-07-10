@@ -40,7 +40,7 @@ function Navbar({ isLogged, onLogout }) {
   const desktopNav = () => (
     <div className="nav-container">
       <img src={logo} alt="OStretch logo" />
-      <ul className="nav-links">
+      <ul className="nav-container-links">
         <Link className="home" to="/">
           Accueil
         </Link>
@@ -51,15 +51,15 @@ function Navbar({ isLogged, onLogout }) {
           A propos
         </Link>
         <Link className="forum" to="/forum">
-          Contact
+          Forum
         </Link>
         <Link className="contact" to="/contact">
           Contact
         </Link>
       </ul>
-      <div className="login-profile">
+      <div className="nav-container-login">
         {
-                        isLogged ? <FaRegUserCircle className="user" onClick={handleClick} /> : <NavLink to="/login" className="login">Login</NavLink>
+                        isLogged ? <FaRegUserCircle className="nav-container-login-user" onClick={handleClick} /> : <NavLink to="/login" className="nav-container-login-login">Login</NavLink>
                     }
       </div>
       {
@@ -95,7 +95,7 @@ function Navbar({ isLogged, onLogout }) {
   );
 
   return (
-    <div className="Navbar">
+    <div className="navbar">
       {/* Mobile */}
       <MediaQuery minWidth={320} maxWidth={480}>
         {mobileNav()}
