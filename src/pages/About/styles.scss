@@ -1,11 +1,17 @@
-.About{
+.about{
     height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    & .about-container{
+&-h2 {
+    margin: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+    &-container{
         display: flex;
         width: 80%;
         margin: 0 auto;
@@ -14,24 +20,28 @@
         background-color: white;
         padding: 50px;
     
-        & .about-card{
+        &-card{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
         
-            & .about-photo{
+            &-photo{
                 height: 200px;
                 border-radius: 15px;
             }
             
-             & .about-name{
+             &-name{
                 color: #7867B1;
                 font-weight: bold;
-            
+                margin-top: 20px;
             }
-             & .about-icons{
+
+            &-p {
+                margin: 10px;
+            }
+             &-icons{
                 color: #7867B1;
                 height: 40px;
             
