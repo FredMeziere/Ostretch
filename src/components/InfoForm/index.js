@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -99,7 +100,7 @@ function InfoForm({
       </p>
       <textarea rows="5" cols="33" type="text" name="biography" value={userValue.biography} className="infos" placeholder={user.biography} onChange={handleChange} />
 
-      <button type="button" className="modify-btn">Enregistrer</button>
+      <button type="submit" className="modify-btn">Enregistrer</button>
       <p>Vous souhaitez supprimer définivement votre compte?</p>
       <div className="delete-account-btn" onClick={handleDelete}>Supprimer</div>
     </form>
@@ -108,8 +109,8 @@ function InfoForm({
 
 InfoForm.propTypes = {
   user: shape({
-    username: string,
-    biography: string,
+    username: string.isRequired,
+    biography: string.isRequired,
   }).isRequired,
   setUser: func.isRequired,
   setIsEditOpen: func.isRequired,

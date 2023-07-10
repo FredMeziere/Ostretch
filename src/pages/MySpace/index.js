@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { useState } from 'react';
 import {
   func, shape, string,
@@ -21,12 +22,12 @@ function MySpace({ user, setUser, setIsLogged }) {
       <h1>Bienvenue {user.username}</h1>
       <div className="box">
 
-        <h2>Mes informations</h2>
+        <h2>Mes informations personelles :</h2>
         { isEditOpen ? <InfoForm user={user} setIsEditOpen={setIsEditOpen} setUser={setUser} setIsLogged={setIsLogged} /> : <Info user={user} handleClick={onEdit} />}
 
       </div>
       <div className="box">
-        <h2>Mes favoris</h2>
+        <h2>Ma liste de favoris</h2>
         <Bookmarks />
       </div>
     </div>
@@ -35,7 +36,8 @@ function MySpace({ user, setUser, setIsLogged }) {
 
 MySpace.propTypes = {
   user: shape({
-    username: string.isRequired,
+    username: string,
+    biography: string,
   }).isRequired,
   setUser: func.isRequired,
   setIsLogged: func.isRequired,
