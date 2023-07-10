@@ -8,7 +8,7 @@ import {
 
 function Footer() {
   return (
-    <div className="Footer">
+    <div className="footer">
       <div className="footer-links">
         <ul>
           <Link to="/">Accueil</Link>

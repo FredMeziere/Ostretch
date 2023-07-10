@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MediaQuery from 'react-responsive';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -15,13 +15,27 @@ import logo from '../../assets/img/logo.svg';
 
 function Navbar({ isLogged, onLogout }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
 
   const handleClick = () => {
     setDropdownOpen(!dropdownOpen);
   };
+
   const handleClose = () => {
     setDropdownOpen(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsFixed(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // MOBILE
   const handleDropdown = () => {
@@ -38,7 +52,7 @@ function Navbar({ isLogged, onLogout }) {
   };
 
   const desktopNav = () => (
-    <div className="nav-container">
+    <div className={`nav-container ${isFixed ? 'nav-container-fixed' : ''}`}>
       <img src={logo} alt="OStretch logo" />
       <ul className="nav-container-links">
         <Link className="home" to="/">
@@ -58,38 +72,42 @@ function Navbar({ isLogged, onLogout }) {
         </Link>
       </ul>
       <div className="nav-container-login">
-        {
-                        isLogged ? <FaRegUserCircle className="nav-container-login-user" onClick={handleClick} /> : <NavLink to="/login" className="nav-container-login-login">Login</NavLink>
-                    }
+        {isLogged ? (
+          <FaRegUserCircle
+            className="nav-container-login-user"
+            onClick={handleClick}
+          />
+        ) : (
+          <NavLink to="/login" className="nav-container-login-login">
+            Login
+          </NavLink>
+        )}
       </div>
-      {
-                    dropdownOpen ? <Toggle onLogout={onLogout} onClose={handleClose} /> : null
-                }
+      {dropdownOpen ? <Toggle onLogout={onLogout} onClose={handleClose} /> : null}
     </div>
   );
 
   const mobileNav = () => (
-    <div className="mobile-dropdown">
+    <div className={`mobile-dropdown ${isFixed ? 'header-fixed' : ''}`}>
       <img src={logo} alt="OStretch logo" />
-      <GiHamburgerMenu
-        className="mobile-dropdown-icon"
-        onClick={handleDropdown}
-      />
+      <GiHamburgerMenu className="mobile-dropdown-icon" onClick={handleDropdown} />
 
       <ul className="mobile-nav-links closed" id="mobile-nav-links">
         <Link className="home" to="/">
-          <li>
-            Accueil
-          </li>
+          <li>Accueil</li>
         </Link>
         <Link className="stretches" to="/stretches">
-          <li>
-            Étirements
-          </li>
+          <li>Étirements</li>
         </Link>
-        {
-                        isLogged ? <NavLink to="/my-space" className="user">Mon espace</NavLink> : <NavLink to="/login" className="login">Login</NavLink>
-                    }
+        {isLogged ? (
+          <NavLink to="/my-space" className="user">
+            Mon espace
+          </NavLink>
+        ) : (
+          <NavLink to="/login" className="login">
+            Login
+          </NavLink>
+        )}
       </ul>
     </div>
   );

@@ -101,6 +101,40 @@
     }
   }
 
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: #EAE2F7;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    align-items: center;
+
+    & img {
+      height: 75%;
+
+      &:hover {
+        animation: spin 2s linear infinite;
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+
+
   &-links {
     display: flex;
     justify-content: space-evenly;
