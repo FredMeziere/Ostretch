@@ -10,7 +10,7 @@
         justify-content: center;
         align-items: center;
         margin: 40px auto;
-    
+
         & svg:hover {
             cursor: pointer;
         }
@@ -62,65 +62,103 @@
         }
     }
 }
-.main-body{
+
+.main-body {
     width: 100%;
     position: relative;
     margin-bottom: 300px;
     margin-top: 100px;
 }
 
-.legs-cards{
+.legs-cards {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    height:100%;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
-}
-.right-legs-cards{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 15%;
-    justify-content: space-between;
-}
-.left-legs-cards{
-    margin-left: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
 }
 
-.head-cards{
-    position: absolute;
-    right: 0;
-    margin-right: 15%;
-}
-.arm-cards{
-    position: absolute;
-    right: 0;
-    margin-right: 15%;
-}
-.cheast-cards{
-    position: absolute;
-    right: 0;
-    margin-right: 15%;
+.right-legs-cards {
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin-right: 15%;
     justify-content: space-between;
-}
-.stomach-cards{
-    position: absolute;
-    margin-left: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.shoulder-cards{
-    position: absolute;
-    margin-left: 15%;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
 }
 
+.left-legs-cards {
+    margin-left: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
+
+.head-cards {
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
+
+.arm-cards {
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
+
+.cheast-cards {
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
+
+.stomach-cards {
+    position: absolute;
+    margin-left: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
+
+.shoulder-cards {
+    position: absolute;
+    margin-left: 15%;
+
+    & .Card {
+        margin-bottom: 20px;
+    }
+}
