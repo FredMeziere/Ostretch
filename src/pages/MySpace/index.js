@@ -18,16 +18,17 @@ function MySpace({ user, setUser, setIsLogged }) {
   };
 
   return (
-    <div className="MySpace">
-      <h1>Bienvenue {user.username}</h1>
-      <div className="box">
+    <div className="myspace">
+      <h1 className="myspace-h1">Bienvenue {user.username}</h1>
+      <div className="myspace-box">
 
-        <h2>Mes informations personelles :</h2>
+        <h2 className="myspace-h2">Mes informations personelles :</h2>
         { isEditOpen ? <InfoForm user={user} setIsEditOpen={setIsEditOpen} setUser={setUser} setIsLogged={setIsLogged} /> : <Info user={user} handleClick={onEdit} />}
 
       </div>
-      <div className="box">
-        <h2>Ma liste de favoris</h2>
+      <div className="myspace-bookmarks">
+        <h2 className="myspace-h2">Ma liste de favoris</h2>
+        <p className="myspace-p">Ici vous pouvez retrouver vos favoris :</p>
         <Bookmarks />
       </div>
     </div>

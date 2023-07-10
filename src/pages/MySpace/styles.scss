@@ -1,31 +1,65 @@
 @import '../../styles/vars';
 
-.box {
-    margin: 0 auto;
-    width: 70%;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    margin-top: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+.myspace {
 
-.MySpace {
+    &-box {
+        margin: 0 auto;
+        width: 65%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    & h1 {
+        margin-top: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    &-bookmarks {
+        margin: 0 auto;
+        width: 65%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-top: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        & .Card {
+            margin-bottom: 15px;
+            grid-row: 3;
+        }
+    }
+
+    &-h1 {
         text-align: center;
         font-size: 3rem;
-        font-weight: 600;
+        font-weight: 700;
+        margin-top: 40px;
+
+    }
+    &-h2 {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    &-p {
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 1rem;
     }
 
     & .my-favorites {
         position: absolute;
-        width: 209px;
+        width: 200px;
         height: 45px;
         left: 616px;
         top: 747px;
@@ -65,14 +99,14 @@
             background-color: #9C5FFF;
             font-family: 'Poppins', sans-serif;
             transition: $transition-300;
-        
+
             &:hover {
                 transform: translateY(4px) scale(1.1);
             }
         }
     }
 
-    .infos{
+    .infos {
         margin: 10px;
         padding: 10px;
         width: 50%;
@@ -85,11 +119,12 @@
         color: white;
         background-color: #ba788a;
         border: none;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);   
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
         padding: 15px;
         cursor: pointer;
     }
-.bookmarks-cards{
+
+    .bookmarks-cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -114,14 +149,15 @@
     background-color: #9C5FFF;
     cursor: pointer;
 }
-    .modify-btn {
-        border-radius: 20px;
-        color: white;
-        background-color: #9C5FFF;
-        border: none;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);   
-        padding: 15px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
+
+.modify-btn {
+    border-radius: 20px;
+    color: white;
+    background-color: #9C5FFF;
+    border: none;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
