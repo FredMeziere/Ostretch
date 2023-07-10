@@ -42,22 +42,22 @@ function Formulaire() {
   };
 
   return (
-    <form ref={contactFormRef} className="Form" onSubmit={handleSubmit}>
+    <form ref={contactFormRef} className="form" onSubmit={handleSubmit}>
       <p>Si vous souhaitez nous contacter remplissez le formulaire de contact ci-dessous, et nous répondrons au plus vite</p>
       <div>
-        <label htmlFor="name">Votre nom</label>
+        <label htmlFor="name">Votre nom*</label>
         <input type="text" id="name" placeholder="Votre nom / prénom ici" value={name} onChange={(event) => setName(event.target.value)} />
       </div>
       <div>
-        <label htmlFor="email">Votre e-mail</label>
+        <label htmlFor="email">Votre e-mail*</label>
         <input type="email" id="email" placeholder="Votre adresse email" value={email} onChange={(event) => setEmail(event.target.value)} />
       </div>
       <div>
-        <label htmlFor="subject">Motif de votre contact</label>
+        <label htmlFor="subject">Motif de votre contact*</label>
         <input type="text" id="subject" placeholder="Sujet de votre message" value={subject} onChange={(event) => setSubject(event.target.value)} />
       </div>
       <div>
-        <label htmlFor="message">Votre message</label>
+        <label htmlFor="message">Votre message*</label>
         <textarea id="message" placeholder="Votre message" value={message} onChange={(event) => setMessage(event.target.value)} />
       </div>
       <div>

@@ -1,7 +1,7 @@
 // Import des variables SCSS
 @import '../../styles/vars';
 
-.Home {
+.home {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -13,8 +13,8 @@
         }
     }
     
-    & .discover-button {
-        padding: 6px 24px;
+    &-discover-button {
+        padding: 15px 40px;
         color: black;
         text-decoration: none;
         font-weight: 500;
@@ -29,4 +29,13 @@
         }
     }
 
+    &-p {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    &-p1 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
 }
