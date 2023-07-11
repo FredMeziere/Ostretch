@@ -14,6 +14,7 @@ import Formulaire from './pages/Contact/Formulaire';
 import NewStretch from './pages/NewStretch';
 import Footer from './components/Footer/Footer';
 import About from './pages/About';
+import Forum from './pages/Forum';
 
 function App() {
   const [user, setUser] = useState('');
@@ -48,6 +49,7 @@ function App() {
         <Route path="/login" element={<Login onSubmitLoginForm={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Formulaire />} />
+        <Route path="/forum" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
         {
         isLogged ? <Route path="/my-space" element={<MySpace user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
         }
