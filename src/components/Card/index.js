@@ -46,15 +46,15 @@ function Card({
     <div className="Card" id={id}>
       <Link to={`/stretches/${link}`} className="card" title={title}>
         <div className="card-content">
-          <img src={img} alt={alt} title={hover} />
-          <div className="card-footer">
+          <img className="card-content-img" src={img} alt={alt} title={hover} />
+          <div className="card-content-footer">
             <h3>{title}</h3>
             {isLogged ? (
-              <span onClick={handleFavorite} className="favorite-icon">
-                {isFavorite ? <AiFillHeart className="filled-icon" /> : <AiOutlineHeart />}
+              <span onClick={handleFavorite} className="card-content-footer-favorite-icon">
+                {isFavorite ? <AiFillHeart className="card-content-footer-filled-icon" /> : <AiOutlineHeart />}
               </span>
             ) : (
-              <span className="favorite-icon" />
+              <span className="card-content-footer-favorite-icon" />
             )}
           </div>
         </div>

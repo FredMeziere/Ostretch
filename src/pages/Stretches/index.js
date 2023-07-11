@@ -56,7 +56,7 @@ export default class Stretches extends Component {
       <div className="stretches">
         <div>
           <Wrapper
-            wrapperTitle="Tous nos étirements disponibles"
+            wrapperTitle="Voici tous nos étirements disponibles"
             wrapperDescription="Lors d'un étirement, n'allez pas au-delà de vos limites physiologiques. L'étirement doit être fait en douceur et doit uniquement mettre en tension le muscle correspondant."
           />
           <input
@@ -68,6 +68,7 @@ export default class Stretches extends Component {
             onChange={this.handleSearch}
           />
         </div>
+        <p className="stretches-p">Vous pouvez choisir un étirement directement dans la barre de recherche, ou vous pouvez simplement naviguer dans la liste ci-dessous</p>
         {isAdmin ? (
           <div className="stretches-add">
             <NavLink to="/new-stretch" className="stretches-add-stretch-btn"> <AiFillPlusCircle /> Ajouter un étirement </NavLink>
