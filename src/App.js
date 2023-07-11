@@ -49,12 +49,14 @@ function App() {
         <Route path="/login" element={<Login onSubmitLoginForm={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Formulaire />} />
-        <Route path="/forum" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
         {
         isLogged ? <Route path="/my-space" element={<MySpace user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
         }
         {
         isAdmin ? <Route path="/new-stretch" element={<NewStretch />} /> : <Route path="/my-space" element={<Login />} />
+        }
+        {
+        isLogged ? <Route path="/forum" element={<Forum user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
         }
         <Route path="/*" element={<Error404 />} />
       </Routes>

@@ -79,7 +79,7 @@ function Navbar({ isLogged, onLogout }) {
           />
         ) : (
           <NavLink to="/login" className="nav-container-login-login">
-            Login
+            Inscription
           </NavLink>
         )}
       </div>
