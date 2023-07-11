@@ -16,14 +16,16 @@ function Signup() {
   const [errorPassword, setErrorPassword] = useState(false);
   const [errorConfirm, setErrorConfirm] = useState(false);
   const [errorInput, setErrorInput] = useState(false);
+  const [errorLengthUsername, setErrorLenghtUsername] = useState(false);
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
     setErrorInput(false);
+    setErrorLenghtUsername(false);
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value.toLowerCase());
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value.toLowerCase());
     setErrorInput(false);
   };
 
@@ -38,10 +40,13 @@ function Signup() {
     setErrorConfirm(false);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     if (username === '' || email === '') {
       setErrorInput(true);
+    }
+    else if (username.length <= 4) {
+      setErrorLenghtUsername(true);
     }
     else if (password.length < 8) {
       setErrorPassword(true);
@@ -70,33 +75,36 @@ function Signup() {
 
   return (
     <div className="login">
-      <div className="box-container">
-        <img src={logo} alt="" />
-        <h2>Créer un compte</h2>
+      <div className="login-container">
+        <img className="login-container-img" src={logo} alt="" />
+        <h2 className="login-container-h2">Créez votre compte en remplissant les champs ci-dessous</h2>
 
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="login-container-form" onSubmit={handleSubmit}>
           {
-                errorInput ? <div className="error"> Tous les champs sont obligatoires </div> : null
-                }
-          <div className="input-group">
-            <input type="text" name="name" placeholder="Name" value={username} onChange={handleUsernameChange} />
+            errorInput ? <div className="error"> Tous les champs sont obligatoires </div> : null
+          }
+          {
+            errorLengthUsername ? <div className="error">Votre pseudo doit faire plus de 4 caractères</div> : null
+          }
+          <div className="login-container-input-group">
+            <input type="text" name="name" placeholder="Votre Pseudo" value={username} onChange={handleUsernameChange} />
           </div>
-          <div className="input-group">
+          <div className="login-container-input-group">
             <input type="email" name="email" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
           </div>
           {
-                errorPassword ? <div className="error"> Le mot de passe doit contenir min 8 caractères </div> : null
-                }
-          <div className="input-group">
+            errorPassword ? <div className="error">Le mot de passe doit contenir minimum 8 caractères</div> : null
+          }
+          <div className="login-container-input-group">
             <input type="password" name="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
           </div>
-          {
-                errorConfirm ? <div className="error"> Les mots de passe doivent être identiques </div> : null
-                }
-          <div className="input-group">
+          <div className="login-container-input-group">
             <input type="password" name="confirm" placeholder="Confirmez le mot de passe" value={passwordConfirm} onChange={handlePasswordConfirmChange} />
           </div>
-          <button type="submit" className="primary">S'inscrire</button>
+          {
+            errorConfirm ? <div className="error"> Les mots de passe doivent être identiques </div> : null
+          }
+          <button type="submit" className="login-container-input-group-primary">S'inscrire</button>
         </form>
 
       </div>
