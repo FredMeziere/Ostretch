@@ -1,0 +1,40 @@
+.forum {
+    &-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &-subject {
+            width: 70%;
+            height: 800px;
+            background-color: #B3A7D6;
+            border-radius: 10px;
+
+            &-h2 {
+                margin: 15px 0px 0px 30px;
+                padding: 20px;
+                background-color: #FDECD6;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 15% 0% 15% 0%;
+                font-weight: 700;
+            }
+        }
+
+        &-discussions {
+            width: 25%;
+            height: 800px;
+            background-color: #B3A7D6;
+            border-radius: 10px;
+
+            &-h2 {
+                margin: 15px 0px 0px 30px;
+                padding: 20px;
+                background-color: #FDECD6;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 15% 0% 15% 0%;
+                font-weight: 700;
+            }
+        }
+    }
+}
