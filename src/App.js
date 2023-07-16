@@ -20,12 +20,10 @@ function App() {
   const [user, setUser] = useState('');
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  // console.log(isLogged);
 
   const handleLogin = (item) => {
     setUser(item);
     setIsLogged(true);
-    // console.log('Connecté');
     if (item.role_id === 1) {
       setIsAdmin(true);
     }

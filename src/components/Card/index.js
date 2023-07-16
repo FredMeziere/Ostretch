@@ -65,8 +65,7 @@ function Card({
 
 Card.propTypes = {
   id: number.isRequired,
-  // eslint-disable-next-line react/require-default-props
-  link: string,
+  link: string.isRequired,
   img: string.isRequired,
   alt: string.isRequired,
   hover: string.isRequired,
