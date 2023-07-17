@@ -15,6 +15,7 @@ import NewStretch from './pages/NewStretch';
 import Footer from './components/Footer/Footer';
 import About from './pages/About';
 import Forum from './pages/Forum';
+import NewPost from './pages/NewPost';
 
 function App() {
   const [user, setUser] = useState('');
@@ -47,6 +48,7 @@ function App() {
         <Route path="/login" element={<Login onSubmitLoginForm={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Formulaire />} />
+        <Route path="/new-post" component={NewPost} />
         {
         isLogged ? <Route path="/my-space" element={<MySpace user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
         }
@@ -54,8 +56,22 @@ function App() {
         isAdmin ? <Route path="/new-stretch" element={<NewStretch />} /> : <Route path="/my-space" element={<Login />} />
         }
         {
-        isLogged ? <Route path="/forum" element={<Forum user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
-        }
+  isLogged ? (
+    <Route
+      path="/forum"
+      element={(
+        <Forum
+          user={user}
+          setUser={setUser}
+          setIsLogged={setIsLogged}
+          isAdmin={isAdmin}
+        />
+      )}
+    />
+  ) : (
+    <Route path="/forum" element={<Login />} />
+  )
+}
         <Route path="/*" element={<Error404 />} />
       </Routes>
       <Footer />

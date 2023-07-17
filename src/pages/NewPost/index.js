@@ -29,7 +29,6 @@ function NewPost() {
         },
       })
         .then(() => {
-          // console.log(response.data);
           setErrorInput(true);
           navigate('/forum');
         })
