@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { NavLink } from 'react-router-dom';
+import { AiFillPlusCircle } from 'react-icons/ai';
 
 import Wrapper from '../../components/Wrapper';
 import Post from '../../components/Post';
@@ -14,7 +16,7 @@ export default function Forum() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/posts`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/post`)
       .then((response) => {
         const postsData = response.data;
         setPosts(postsData);
@@ -81,7 +83,28 @@ export default function Forum() {
           </ul>
         </div>
         <div className="forum-container-discussions">
-          <h2 className="forum-container-discussions-h2">Les discussions récentes</h2>
+          <h2 className="forum-container-discussions-h2">Les discussions récentes </h2>
+          <div className="stretches-add">
+            <NavLink to="/new-post" className="stretches-add-stretch-btn">
+              <AiFillPlusCircle /> Nouvelle discussion
+            </NavLink>
+          </div>
+          <ul className="forum-container-discussions-ul">
+            {filterData()
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .slice(0, 5)
+              .map((post) => (
+                <Post
+                  id={post.id}
+                  title={post.title}
+                  img={post.image}
+                  alt={post.title}
+                  hover={post.title}
+                  key={post.id}
+                  link={post.id}
+                />
+              ))}
+          </ul>
         </div>
       </div>
     </div>

@@ -1,0 +1,46 @@
+.new-stretch-container {
+    margin: 0 auto;
+    width: 70%;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.infos {
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+    border: 1px solid #9c5fff30;
+    border-radius: 20px;
+}
+
+.save-btn {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 1em 3em;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    background-color: #9C5FFF;
+    font-family: 'Poppins', sans-serif;
+}
+.custom-select{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  margin: 10px;
+  padding: 10px;
+  width: 30%;
+  border: 1px solid #9c5fff30;
+  border-radius: 20px;
+  background-color: #8879a030;
+}
+
+
