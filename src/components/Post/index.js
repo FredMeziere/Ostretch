@@ -14,7 +14,7 @@ import './styles.scss';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 function Post({
-  id, title, isLogged, alt, img, link,
+  id, title, isLogged, link,
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const token = localStorage.getItem('token');
@@ -46,7 +46,6 @@ function Post({
     <div className="post" id={id}>
       <Link to={`/post/${link}`} className="post-link" title={title}>
         <div className="post-content">
-          <img className="post-content-img" src={img} alt={alt} title={title} />
           <div className="post-content-footer">
             <h3>{title}</h3>
             {isLogged ? (
@@ -65,8 +64,6 @@ function Post({
 
 Post.propTypes = {
   id: number.isRequired,
-  img: string.isRequired,
-  alt: string.isRequired,
   link: string.isRequired,
   title: string.isRequired,
   isLogged: bool.isRequired,

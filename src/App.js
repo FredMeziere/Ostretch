@@ -48,30 +48,16 @@ function App() {
         <Route path="/login" element={<Login onSubmitLoginForm={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Formulaire />} />
-        <Route path="/new-post" component={NewPost} />
         {
         isLogged ? <Route path="/my-space" element={<MySpace user={user} setUser={setUser} setIsLogged={setIsLogged} />} /> : <Route path="/my-space" element={<Login />} />
         }
         {
         isAdmin ? <Route path="/new-stretch" element={<NewStretch />} /> : <Route path="/my-space" element={<Login />} />
         }
+        <Route path="/forum" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
         {
-  isLogged ? (
-    <Route
-      path="/forum"
-      element={(
-        <Forum
-          user={user}
-          setUser={setUser}
-          setIsLogged={setIsLogged}
-          isAdmin={isAdmin}
-        />
-      )}
-    />
-  ) : (
-    <Route path="/forum" element={<Login />} />
-  )
-}
+        isLogged ? <Route path="/new-post" element={NewPost} /> : <Route path="/signup" element={<Signup />} />
+        }
         <Route path="/*" element={<Error404 />} />
       </Routes>
       <Footer />

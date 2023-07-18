@@ -66,22 +66,18 @@ export default class Forum extends Component {
                 value={searchTerm}
                 onChange={this.handleSearch}
               />
-              {categoriespost.map((category) => (
-                <div className="posts-container-category" key={category.name}>
-                  <div id={category.name} />
-                  <h2 className="posts-container-h2">{category.name}</h2>
+              {categoriespost.map((category_post) => (
+                <div className="posts-container-category" key={category_post.name}>
+                  <div id={category_post.name} />
+                  <h2 className="posts-container-h2">{category_post.name}</h2>
                   <ul className="posts-container-ul">
                     {filterData()
-                      .filter((post) => post.category_post_id === category.id)
+                      .filter((post) => post.category_post_id === category_post.id)
                       .map((post) => (
                         <Post
                           id={post.id}
                           title={post.title}
-                          img={post.image}
-                          alt={post.title}
-                          hover={post.title}
-                          key={post.id}
-                          link={post.id}
+                          text_content={post.text_content}
                         />
                       ))}
                   </ul>
