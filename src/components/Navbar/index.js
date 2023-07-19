@@ -64,7 +64,7 @@ function Navbar({ isLogged, onLogout }) {
         <Link className="about" to="/about">
           A propos
         </Link>
-        <Link className="forum" to="/forum">
+        <Link className="forum" to="/posts">
           Forum
         </Link>
         <Link className="contact" to="/contact">

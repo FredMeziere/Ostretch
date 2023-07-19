@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+
 import './styles.scss';
 
 function NewPost() {
@@ -11,7 +12,7 @@ function NewPost() {
   const [userValue, setUserValue] = useState({
     title: '',
     description_content: '',
-    category_id: '',
+    category_post_id: '',
   });
 
   const handleSubmit = (event) => {
@@ -22,7 +23,7 @@ function NewPost() {
       setErrorInput(true);
     }
     else {
-      axios.post(`${process.env.REACT_APP_BASE_URL}/forum`, userValue, {
+      axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, userValue, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -30,7 +31,7 @@ function NewPost() {
       })
         .then(() => {
           setErrorInput(true);
-          navigate('/forum');
+          navigate('/posts');
         })
         .catch((error) => {
           toast.error(error);

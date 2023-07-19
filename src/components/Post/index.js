@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Styles
 import './styles.scss';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 function Post({
   id, title, isLogged, link,
@@ -22,17 +21,12 @@ function Post({
   const handleFavorite = (event) => {
     event.preventDefault();
 
-    if (isFavorite) {
-      toast.warning('Ce post est déjà marqué comme favori.');
-      return;
-    }
-
     setIsFavorite(true);
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
 
-    axios.post(`${process.env.REACT_APP_BASE_URL}/user/me/post/${id}`, {}, config)
+    axios.post(`${process.env.REACT_APP_BASE_URL}/posts/${id}`, {}, config)
       .then((response) => {
         setIsFavorite(true);
       })
@@ -44,17 +38,10 @@ function Post({
 
   return (
     <div className="post" id={id}>
-      <Link to={`/post/${link}`} className="post-link" title={title}>
+      <Link to={`/posts/${link}`} className="post-link" title={title}>
         <div className="post-content">
           <div className="post-content-footer">
             <h3>{title}</h3>
-            {isLogged ? (
-              <span onClick={handleFavorite} className="post-content-footer-favorite-icon">
-                {isFavorite ? <AiFillHeart className="post-content-footer-filled-icon" /> : <AiOutlineHeart />}
-              </span>
-            ) : (
-              <span className="post-content-footer-favorite-icon" />
-            )}
           </div>
         </div>
       </Link>

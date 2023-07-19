@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -54,9 +54,19 @@ function App() {
         {
         isAdmin ? <Route path="/new-stretch" element={<NewStretch />} /> : <Route path="/my-space" element={<Login />} />
         }
-        <Route path="/forum" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
+        <Route path="/posts" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
         {
-        isLogged ? <Route path="/new-post" element={NewPost} /> : <Route path="/signup" element={<Signup />} />
+          isLogged ? (
+            <>
+              {/* Si l'utilisateur est connecté */}
+              <Route path="/new-post" element={<NewPost />} />
+            </>
+          ) : (
+            <>
+              {/* Si l'utilisateur n'est pas connecté */}
+              <Route path="/new-post" element={<Navigate to="/signup" />} />
+            </>
+          )
         }
         <Route path="/*" element={<Error404 />} />
       </Routes>
