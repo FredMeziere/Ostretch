@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +14,24 @@ function NewPost() {
     description_content: '',
     category_post_id: '',
   });
+
+  const [categoryPosts, setCategoryPosts] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios.get(`${process.env.REACT_APP_BASE_URL}/postcategories`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        setCategoryPosts(response.data);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,13 +80,18 @@ function NewPost() {
       <textarea rows="5" cols="33" type="text" name="description_content" value={userValue.description_content} className="infos" placeholder="Pour étirer ce muscle..." onChange={handleChange} />
 
       <p>Catégorie:</p>
-
-      <select name="category_id" className="custom-select" onChange={handleChange} value={userValue.category_id}>
-        <option value="">--Merci de sélectionner une catégorie--</option>
-        <option value="1">Etirements</option>
-        <option value="2">Aide et astuces</option>
-        <option value="3">Discussions générales</option>
-        <option value="4">Autre</option>
+      <select
+        name="category_post_id"
+        className="custom-select"
+        onChange={handleChange}
+        value={userValue.category_post_id}
+      >
+        <option value="">-- Merci de sélectionner une catégorie --</option>
+        {categoryPosts.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.name}
+          </option>
+        ))}
       </select>
 
       <button type="submit" className="save-btn">Enregistrer</button>

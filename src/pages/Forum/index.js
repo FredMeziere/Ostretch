@@ -18,7 +18,7 @@ export default class Forum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtredPosts: [],
+      posts: [],
       categoriespost: [],
       searchTerm: '',
     };
@@ -27,8 +27,8 @@ export default class Forum extends Component {
   componentDidMount() {
     axios.get(`${process.env.REACT_APP_BASE_URL}/posts`)
       .then((response) => {
-        const filtredPosts = response.data;
-        this.setState({ filtredPosts });
+        const posts = response.data;
+        this.setState({ posts });
       });
 
     axios.get(`${process.env.REACT_APP_BASE_URL}/postcategories`)
@@ -43,8 +43,8 @@ export default class Forum extends Component {
   };
 
   filterData = () => {
-    const { searchTerm, filtredPosts } = this.state;
-    return filtredPosts.filter((rawdata) => rawdata.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    const { searchTerm, posts } = this.state;
+    return posts.filter((rawdata) => rawdata.title.toLowerCase().includes(searchTerm.toLowerCase()));
   };
 
   render() {

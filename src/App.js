@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -64,7 +64,7 @@ function App() {
           ) : (
             <>
               {/* Si l'utilisateur n'est pas connecté */}
-              <Route path="/new-post" element={<Navigate to="/signup" />} />
+              <Route path="/my-space" element={<Login />} />
             </>
           )
         }
