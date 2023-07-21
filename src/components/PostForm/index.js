@@ -27,27 +27,23 @@ function StretchForm({
       updatedData.description_content = userValue.description_content;
     }
 
-    if (userValue.main_image !== '') {
-      updatedData.main_image = userValue.main_image;
-    }
-
     const token = localStorage.getItem('token'); // Récupérer le jeton d'authentification stocké dans le stockage local
 
-    axios.patch(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, updatedData, {
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/posts/${id}`, updatedData, {
       headers: {
         Authorization: `Bearer ${token}`, // Ajouter le jeton d'authentification à l'en-tête de la demande
         'Content-Type': 'application/json',
       },
     })
       .then(() => {
-        axios.get(`${process.env.REACT_APP_BASE_URL}/stretches/${id}`, {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
           .then((response) => {
-            const stretchFound = response.data;
-            setStretch(stretchFound);
+            const postFound = response.data;
+            setStretch(postFound);
             // console.log(response.data);
           })
           .catch((error) => {
@@ -70,13 +66,9 @@ function StretchForm({
   return (
     <form className="infos-container" onSubmit={handleSubmit}>
       <p>
-        Nom de l'étirement:
+        Nom du post:
       </p>
       <input type="text" name="title" value={userValue.title} className="infos" placeholder={stretch.title} onChange={handleChange} />
-      <p>
-        URL de la photo:
-      </p>
-      <input type="text" name="main_image" value={userValue.main_image} className="infos" placeholder="https://" onChange={handleChange} />
       <p>
         Description:
       </p>

@@ -16,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import About from './pages/About';
 import Forum from './pages/Forum';
 import NewPost from './pages/NewPost';
+import Post from './components/Post';
 
 function App() {
   const [user, setUser] = useState('');
@@ -55,6 +56,7 @@ function App() {
         isAdmin ? <Route path="/new-stretch" element={<NewStretch />} /> : <Route path="/my-space" element={<Login />} />
         }
         <Route path="/posts" element={<Forum isAdmin={isAdmin} isLogged={isLogged} />} />
+        <Route path="/posts/:id" element={<Post isAdmin={isAdmin} isLogged={isLogged} />} />
         {
           isLogged ? (
             <>
