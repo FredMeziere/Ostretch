@@ -4,16 +4,14 @@ import { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import axios from 'axios';
 import {
-  string, number, bool,
+  string, number,
 } from 'prop-types';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 // Styles
 import './styles.scss';
 
 function Post({
-  id, title, isLogged, link,
+  id, title, link,
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const token = localStorage.getItem('token');
@@ -25,15 +23,6 @@ function Post({
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-
-    axios.post(`${process.env.REACT_APP_BASE_URL}/favorite/posts/${id}`, {}, config)
-      .then((response) => {
-        setIsFavorite(true);
-      })
-      .catch((error) => {
-        setIsFavorite(false);
-        toast.error(error);
-      });
   };
 
   return (
@@ -53,7 +42,6 @@ Post.propTypes = {
   id: number.isRequired,
   link: string.isRequired,
   title: string.isRequired,
-  isLogged: bool.isRequired,
 };
 
 export default Post;

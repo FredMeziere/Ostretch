@@ -31,7 +31,7 @@ export default class Forum extends Component {
         this.setState({ posts });
       });
 
-    axios.get(`${process.env.REACT_APP_BASE_URL}/postcategories`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/postscategories`)
       .then((response) => {
         const categoriespost = response.data;
         this.setState({ categoriespost });
@@ -71,7 +71,7 @@ export default class Forum extends Component {
                 type="search"
                 name="search"
                 id="searchInput"
-                placeholder="Ecrivez le nom de votre étirement..."
+                placeholder="Ecrivez le nom du post voulu.."
                 value={searchTerm}
                 onChange={this.handleSearch}
               />
